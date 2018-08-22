@@ -10,6 +10,7 @@
  Max WP Version: 5.0.4
  */
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+require_once('helperTools.php');
 require_once('globals.php');
 require_once( PLUGIN_PATH_AFFCPA . 'db/database.php');
 require_once( PLUGIN_PATH_AFFCPA . 'db/menu.php');

@@ -83,9 +83,9 @@ class advnetworks
 $advnetworks = new advnetworks();
 // if submitted, process the data
 
-global $MENU_SLUG_ADVNETWORKS_EDIT;
+global $AFFCPA_MENU_ADVNETWORKS_SLUG;
 
-if (isset($_POST['advertisingNetworks']) and $_REQUEST['page'] == $MENU_SLUG_ADVNETWORKS_EDIT) {    
+if (isset($_POST['advertisingNetworks']) and $_REQUEST['page'] == $AFFCPA_MENU_ADVNETWORKS_SLUG) {    
     $advnetworks->save_advnetworks($_POST['advertisingNetworks']);
 }
 ?>

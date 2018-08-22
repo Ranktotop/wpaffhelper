@@ -40,26 +40,30 @@ class Affcpa_Menu
         ));
         
         //Toplevel -> Duplicate
-        add_submenu_page($MENU_SLUG_OPTIONS, $MENU_NAME_GENERAL, $MENU_NAME_GENERAL, 'manage_options',$MENU_SLUG_OPTIONS);
+        $this->registerMenuItem(null,$MENU_NAME_GENERAL,$MENU_SLUG_OPTIONS,'build_options');        
         
         //Sublevel -> Projects
-        add_submenu_page($MENU_SLUG_OPTIONS, $MENU_NAME_PROJECTS_EDIT, $MENU_NAME_PROJECTS_EDIT, 'manage_options',$MENU_SLUG_PROJECTS_EDIT, array(
-            $this,
-            'build_projects'
-        ));
+        $this->registerMenuItem(null,$MENU_NAME_PROJECTS_EDIT,$MENU_SLUG_PROJECTS_EDIT,'build_projects');
         
         //Sublevel -> List Advnetworks
-        add_submenu_page($MENU_SLUG_OPTIONS, $MENU_NAME_ADVNETWORKS_EDIT, $MENU_NAME_ADVNETWORKS_EDIT, 'manage_options',$MENU_SLUG_ADVNETWORKS_EDIT, array(
-            $this,
-            'build_advnetworks'
-        ));   
+        $this->registerMenuItem(null,$MENU_NAME_ADVNETWORKS_EDIT,$MENU_SLUG_ADVNETWORKS_EDIT,'build_advnetworks');         
         
         //Sublevel -> Add Advnetwork
-        add_submenu_page(null, $MENU_NAME_ADVNETWORKS_ADD, $MENU_NAME_ADVNETWORKS_ADD, 'manage_options',$MENU_SLUG_ADVNETWORKS_ADD, array(
-            $this,
-            'build_advnetworks'
-        ));   
+        $this->registerMenuItem(null,$MENU_NAME_ADVNETWORKS_ADD,$MENU_SLUG_ADVNETWORKS_ADD,'build_advnetworks');         
+       
     }
+    
+    function registerMenuItem($parentSlug=null,$name,$slug,$functionName=null){
+        global $MENUITEMS;
+        $menuItem = array();
+        array_push($menuItem, $name, $slug);
+        array_push($MENUITEMS,$menuItem);
+        add_submenu_page($parentSlug, $name, $name, 'manage_options',$slug,array(
+            $this,
+            $functionName
+        ));
+    }
+    
     function build_options()
     {
         require_once (PLUGIN_PATH_AFFCPA . "pages/options.php");
@@ -74,6 +78,7 @@ class Affcpa_Menu
     {
         require_once (PLUGIN_PATH_AFFCPA . 'pages/advnetworks.php');
     }
+    
     
    
 

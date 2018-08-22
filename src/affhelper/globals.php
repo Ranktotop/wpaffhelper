@@ -4,6 +4,10 @@
 define( 'PLUGIN_PATH_AFFCPA', plugin_dir_path( __FILE__ ) );
 define( 'PLUGIN_URL_AFFCPA', plugin_dir_url( __FILE__ ) );
 
+//HelperTools
+global $UTOOLS;
+$UTOOLS = new helperTools();
+
 //Ressoruces
 global $AFFCPA_RESURL_CSS;
 $AFFCPA_RESURL_CSS = PLUGIN_URL_AFFCPA . 'pages/ressources/css/';
@@ -15,6 +19,9 @@ global $AFFCPA_MENUPAGE_URL;
 $AFFCPA_MENUPAGE_URL = admin_url() . 'admin.php?page=';
 
 //Menu Items
+global $MENUITEMS;
+$MENUITEMS = array();
+
 global $MENU_NAME_OPTIONS;
 $MENU_NAME_OPTIONS ='Affiliate CPA-Helper';
 global $MENU_SLUG_OPTIONS;
