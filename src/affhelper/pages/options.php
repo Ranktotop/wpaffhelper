@@ -13,7 +13,7 @@ $UTOOLS->printHTMLHead();?>
             }
             ?>
 		
-			<h2><?php _e("Advertising Networks")?></h2>
+			<div id="pageHeading"><h2><?php _e("General Settings")?></h2></div>
 
 	<form method="post" id="form_advnetworks_list"
 		action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']);?>">
@@ -35,7 +35,7 @@ $UTOOLS->printHTMLHead();?>
 			</tbody>
 		</table>	
 		<p class="submit">
-			<input type="submit" name="submit_form_advnetworks_change" class="button-primary"
+			<input type="submit" name="submit_form_advnetworks_change" class="affcpa-btn"
 				value="<?php _e('Save Changes') ?>" />
 		</p>
 	</form>
